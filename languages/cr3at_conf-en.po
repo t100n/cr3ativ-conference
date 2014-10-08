@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cr3ativ Conference Plugin\n"
-"POT-Creation-Date: 2014-10-08 10:29-0500\n"
-"PO-Revision-Date: 2014-10-08 10:29-0500\n"
+"POT-Creation-Date: 2014-10-08 13:55-0500\n"
+"PO-Revision-Date: 2014-10-08 13:55-0500\n"
 "Last-Translator: Barb Atkinson <barbi.atkinson@gmaill.com>\n"
 "Language-Team: Barb Atkinson <barbi.atkinson@gmaill.com>\n"
 "Language: en\n"
@@ -251,7 +251,7 @@ msgstr ""
 msgid "Company"
 msgstr ""
 
-#: cr3ativ-conference.php:630 includes/session-widget.php:24
+#: cr3ativ-conference.php:630 includes/session-widget.php:23
 #: includes/speaker-widget.php:32
 msgid "Title"
 msgstr ""
@@ -260,36 +260,53 @@ msgstr ""
 msgid "Date Added"
 msgstr ""
 
-#: includes/session-widget.php:7
+#: includes/session-widget.php:6
 msgid "Session Loop"
 msgstr ""
 
-#: includes/session-widget.php:28
+#: includes/session-widget.php:27
 msgid "Show speakers for the sessions?"
 msgstr ""
 
-#: includes/session-widget.php:32
+#: includes/session-widget.php:31
 msgid "Show location for the sessions?"
 msgstr ""
 
-#: includes/session-widget.php:106 includes/session-widget.php:110
-#: templates/single-cr3ativspeaker.php:122
+#: includes/session-widget.php:116 includes/session-widget.php:125
+#: includes/session-widget.php:135 includes/session-widget.php:207
+#: includes/session-widget.php:242 includes/session-widget.php:260
+#: includes/session-widget.php:332 templates/single-cr3ativspeaker.php:122
 #: templates/single-cr3ativspeaker.php:126
 #: templates/single-cr3ativspeaker.php:161
 #: templates/single-cr3ativspeaker.php:165
-#: templates/taxonomy-cr3ativconfcategory.php:55
-#: templates/taxonomy-cr3ativconfcategory.php:59
-#: templates/taxonomy-cr3ativconfcategory.php:67
-#: templates/taxonomy-cr3ativconfcategory.php:71
-#: templates/taxonomy-cr3ativconfcategory.php:135
-#: templates/taxonomy-cr3ativconfcategory.php:139
-#: templates/taxonomy-cr3ativconfcategory.php:147
-#: templates/taxonomy-cr3ativconfcategory.php:151
-#: templates/template-cr3ativconference.php:80
+#: templates/taxonomy-cr3ativconfcategory.php:56
+#: templates/taxonomy-cr3ativconfcategory.php:60
+#: templates/taxonomy-cr3ativconfcategory.php:68
+#: templates/taxonomy-cr3ativconfcategory.php:72
+#: templates/taxonomy-cr3ativconfcategory.php:136
+#: templates/taxonomy-cr3ativconfcategory.php:140
+#: templates/taxonomy-cr3ativconfcategory.php:148
+#: templates/taxonomy-cr3ativconfcategory.php:152
+#: templates/template-cr3ativconference.php:77
+#: templates/template-cr3ativconference.php:81
+#: templates/template-cr3ativconference.php:89
+#: templates/template-cr3ativconference.php:93
+#: templates/template-cr3ativconference.php:157
+#: templates/template-cr3ativconference.php:161
+#: templates/template-cr3ativconference.php:169
+#: templates/template-cr3ativconference.php:173
 msgid "Permanent Link to"
 msgstr ""
 
-#: includes/session-widget.php:168 includes/speaker-widget.php:170
+#: includes/session-widget.php:212 includes/session-widget.php:337
+#: templates/taxonomy-cr3ativconfcategory.php:119
+#: templates/taxonomy-cr3ativconfcategory.php:199
+#: templates/template-cr3ativconference.php:140
+#: templates/template-cr3ativconference.php:220
+msgid "Click for more information on"
+msgstr ""
+
+#: includes/session-widget.php:360 includes/speaker-widget.php:170
 #: templates/single-cr3ativconference.php:85
 #: templates/single-cr3ativspeaker.php:65
 #: templates/template-cr3ativconference.php:28
@@ -335,11 +352,4 @@ msgstr ""
 
 #: includes/speaker-widget.php:60
 msgid "How many to show?"
-msgstr ""
-
-#: templates/taxonomy-cr3ativconfcategory.php:118
-#: templates/taxonomy-cr3ativconfcategory.php:198
-#: templates/template-cr3ativconference.php:139
-#: templates/template-cr3ativconference.php:219
-msgid "Click for more information on"
 msgstr ""

@@ -3,7 +3,7 @@ Contributors: Cr3ativ
 Tags: conference, events, speakers
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -168,6 +168,9 @@ Styling for these page templates are included in the includes directory under :
 
 
 == Changelog ==
+
+= 1.0.4 =
+* One final change, forgot to update the media queries for new widgets.
 
 = 1.0.3 =
 * Had to remove line break on the session-widget.php added by our lovely new kitten inadvertently while I was making my last update to fix the headers already sent message.

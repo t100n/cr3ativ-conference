@@ -119,11 +119,11 @@
                 
             <h5 class="date"><?php echo date($dateformat, $cr3ativconfmeetingdate); ?></h5>
             
-            <h6 class="session"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>  <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
+            <h6 class="session"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>&nbsp;<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
             
             <?php } else { ?>
             
-            <h6 class="session"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>  <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
+            <h6 class="session"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>&nbsp;<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
             
             <?php } ?>
             
@@ -158,11 +158,11 @@
                 
             <h5 class="date"><?php echo date($dateformat, $cr3ativconfmeetingdate); ?></h5>
             
-            <h6 class="session"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>  <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
+            <h6 class="session"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>&nbsp;<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
             
             <?php } else { ?>
             
-            <h6 class="session"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>  <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
+            <h6 class="session"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>&nbsp;<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
             
             <?php } ?>
             

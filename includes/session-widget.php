@@ -91,74 +91,266 @@ class cr3ativ_session extends WP_Widget {
         $confstarttime = get_post_meta($post->ID, 'cr3ativ_confstarttime', $single = true);
         $confendtime = get_post_meta($post->ID, 'cr3ativ_confendtime', $single = true); 
         $conflocation = get_post_meta($post->ID, 'cr3ativ_conflocation', $single = true); 
+        $cr3ativ_highlight = get_post_meta($post->ID, 'cr3ativ_highlight', $single = true);
         
         ?>
     
      <div class="sessionwidget">
-         <?php $dateformat = get_option('date_format'); ?>
-         
-            <?php $dateformat = get_option('date_format'); ?>
+                        <?php if ($cr3ativ_highlight != ('')){ ?>
+
+                        <!-- Start of highlight -->
+                        <div class="highlight">
+
+                            <?php $dateformat = get_option('date_format'); ?>
+
+                            <?php if ($sessiondate != (date($dateformat, $cr3ativconfmeetingdate))){ ?>
+
+                            <h1 class="conference_date"><?php echo date($dateformat, $cr3ativconfmeetingdate); ?></h1>
+                            
+                                <?php 
+                                if ( has_post_thumbnail() ) {  ?>
+
+                                <!-- Start of session featured image -->
+                                <div class="session_featured_image">
+
+                                    <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'squarecode' ); ?>&nbsp; <?php the_title_attribute(); ?>"><?php the_post_thumbnail(''); ?></a>
+
+                                </div><!-- End of session featured image -->
+
+                                <?php } ?>
+                                
+                                <!-- Start of conference wrapper -->
+                            <div class="conference_wrapper">
+
+                                <h2 class="meeting_date"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'squarecode' ); ?>&nbsp; <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+
+                                <?php } else { ?>
+
+                                <?php 
+                                if ( has_post_thumbnail() ) {  ?>
+
+                                <!-- Start of session featured image -->
+                                <div class="session_featured_image">
+
+                                    <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'squarecode' ); ?>&nbsp; <?php the_title_attribute(); ?>"><?php the_post_thumbnail(''); ?></a>
+
+                                </div>
+                                <!-- End of session featured image --> 
+                            
+                                <?php } ?>
+                                
+                                <!-- Start of conference wrapper -->
+                            <div class="conference_wrapper">
+
+                                <?php } ?>
+
+                                <!-- Start of conference meta -->
+                                <div class="conference_meta">
+
+                                    <?php $sessiondate = date($dateformat, $cr3ativconfmeetingdate); ?>
+                                    
+                                    <!-- Start of conference time -->
+                                    <div class="conference-time">
+                                        
+                                        <?php if ($confstarttime != ('')){ ?>
+                                        <?php echo ($confstarttime); ?>
+                                        <?php } ?>
+                                        <?php if ($confendtime != ('')){ ?>
+                                        &nbsp;-&nbsp;
+                                        <?php echo ($confendtime); ?>
+                                        <?php } ?>
+
+                                    </div>
+                                    <!-- End of conference time -->
+                                    
+                                    <div class="clearfix"></div>
+                                    
+                                    <!-- Start of conference location -->
+                                    <div class="conference-location">
+                                        
+                                        <?php if ($conflocation != ('')){ ?>
+                                        <?php echo stripslashes($conflocation); ?> 
+                                        <?php } ?>
+
+                                    </div>
+                                    <!-- End of conference location -->
+                                    
+                                </div>
+                                <!-- End of conference meta -->
+                                
+                                <!-- Start of conference content -->
+                                <div class="conference_content">
+
+                                    <!-- Start of speaker list -->
+                                    <div class="speaker_list">
+
+                                    <?php
+                                     $cr3ativ_confspeakers = get_post_meta($post->ID, 'cr3ativ_confspeaker', $single = true); 
+                                    ?>    
+                                    <?php
+                                    if ( $cr3ativ_confspeakers ) { 
+
+                                        foreach ( $cr3ativ_confspeakers as $cr3ativ_confspeaker ) :
+
+                                            $speaker = get_post($cr3ativ_confspeaker);
+                                            $speakerimg = get_the_post_thumbnail($speaker->ID);
+                                            echo'<div class="speaker_list_wrapper">';
+                                            echo '<a title="'. $speaker->post_title .'" class="masterTooltip" href="'. $speaker->guid .'">'. $speakerimg .'</a></div>'; 
+
+                                        endforeach; 
+
+                                    } ?>
+
+                                    </div>
+                                    <!-- End of speaker list -->
+                                    
+                                    <h2 class="meeting_date"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'squarecode' ); ?>&nbsp; <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+
+                                    <!-- Start of session content -->
+                                    <div class="session_content">
+
+                                        <?php the_excerpt (); ?> <a class="conference-more" href="<?php the_permalink (); ?>"><?php _e( 'Click for more information on', 'cr3at_conf' ); ?> '<?php the_title (); ?>'</a> 
+
+                                    </div>
+                                    <!-- End of session content -->
+                                                                        
+                                </div>
+                                <!-- End of conference content -->
+                                
+                                <div class="clearfix"></div>
+                                
+                            </div>
+                            <!-- End of conference wrapper -->
+
+                        </div>
+                        <!-- End of highlight -->
+
+                        <?php } else { ?>
+
+                        <?php $dateformat = get_option('date_format'); ?>
+
+                            <?php if ($sessiondate != (date($dateformat, $cr3ativconfmeetingdate))){ ?>
+
+                            <h1 class="conference_date"><?php echo date($dateformat, $cr3ativconfmeetingdate); ?></h1>
             
-            <?php if ($sessiondate != (date($dateformat, $cr3ativconfmeetingdate))){ ?>
-                
-            <h1 class="conference_date"><?php echo date($dateformat, $cr3ativconfmeetingdate); ?></h1>
- 
-            <h2 class="meeting_date"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>  <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+                            <?php 
+                            if ( has_post_thumbnail() ) {  ?>
+
+                            <!-- Start of session featured image -->
+                            <div class="session_featured_image">
+                                
+                                <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'squarecode' ); ?>&nbsp; <?php the_title_attribute(); ?>"><?php the_post_thumbnail(''); ?></a>
+                                
+                            </div>
+                            <!-- End of session featured image -->
+
+                            <?php } ?>
+                                
+                            <!-- Start of conference wrapper -->
+                            <div class="conference_wrapper">
+
+                            <?php } else { ?>
             
-            <?php } else { ?>
+                            <?php 
+                            if ( has_post_thumbnail() ) {  ?>
+
+                            <!-- Start of session featured image -->
+                            <div class="session_featured_image">
+                                
+                                <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'squarecode' ); ?>&nbsp; <?php the_title_attribute(); ?>"><?php the_post_thumbnail(''); ?></a>
+                                
+                            </div>
+                            <!-- End of session featured image -->   
             
-            <h2 class="meeting_date"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>  <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-            
-            <?php } ?>
-         
-            <?php $dateformat = get_option('date_format'); ?>
-            
-            <?php $sessiondate = date($dateformat, $cr3ativconfmeetingdate); ?>
-            
-            <!-- Start of conference time -->
-            <div class="conference-time">
-                <?php if ($confstarttime != ('')){ ?>
-                <?php echo ($confstarttime); ?>
-                <?php } ?>
-                <?php if ($confendtime != ('')){ ?>
-                &nbsp;-&nbsp;
-                <?php echo ($confendtime); ?>
-                <?php } ?>
-            </div><!-- End of conference time -->
-         
-         <?php if( $sessionlocation == '1' ) { ?>
-            
-            <!-- Start of conference location -->
-            <div class="conference-location">
-                <?php if ($conflocation != ('')){ ?>
-                <?php echo stripslashes($conflocation); ?> 
-                <?php } ?>
-            </div><!-- End of conference location -->
-         
-         <?php } ?>
-         
-         <?php if( $sessionspeakers == '1' ) { ?>
-            
-            <!-- Start of speaker list -->
-            <div class="speaker_list">
-            <?php
-	         $cr3ativ_confspeakers = get_post_meta($post->ID, 'cr3ativ_confspeaker', $single = true); 
-	        ?>    
-            <?php
-	        if ( $cr3ativ_confspeakers ) { 
-				
-	        	foreach ( $cr3ativ_confspeakers as $cr3ativ_confspeaker ) :
-	        	
-	        		$speaker = get_post($cr3ativ_confspeaker);
-                    echo'<div class="speaker_list_wrapper">';
-	        		echo get_the_post_thumbnail($speaker->ID).'<a href="'. $speaker->guid .'">'. $speaker->post_title .'</a></div>'; 
-				
-				endforeach; 
-				
-			} ?>
-            </div><!-- End of speaker list -->
-         
-         <?php } ?>
+                            <?php } ?>
+                                
+                            <!-- Start of conference wrapper -->
+                            <div class="conference_wrapper">
+
+                            <?php } ?>
+                                
+                                <!-- Start of conference meta -->
+                                <div class="conference_meta">
+
+                                    <?php $sessiondate = date($dateformat, $cr3ativconfmeetingdate); ?>
+                                    
+                                    <!-- Start of conference time -->
+                                    <div class="conference-time">
+                                        
+                                        <?php if ($confstarttime != ('')){ ?>
+                                        <?php echo ($confstarttime); ?>
+                                        <?php } ?>
+                                        <?php if ($confendtime != ('')){ ?>
+                                        &nbsp;-&nbsp;
+                                        <?php echo ($confendtime); ?>
+                                        <?php } ?>
+
+                                    </div>
+                                    <!-- End of conference time -->
+                                    
+                                    <div class="clearfix"></div>
+                                    
+                                    <!-- Start of conference location -->
+                                    <div class="conference-location">
+                                        
+                                        <?php if ($conflocation != ('')){ ?>
+                                        <?php echo stripslashes($conflocation); ?> 
+                                        <?php } ?>
+
+                                    </div>
+                                    <!-- End of conference location -->
+                                    
+                                </div>
+                                <!-- End of conference meta -->
+                                
+                                <!-- Start of conference content -->
+                                <div class="conference_content">
+
+                                    <!-- Start of speaker list -->
+                                    <div class="speaker_list">
+
+                                    <?php
+                                     $cr3ativ_confspeakers = get_post_meta($post->ID, 'cr3ativ_confspeaker', $single = true); 
+                                    ?>    
+                                    <?php
+                                    if ( $cr3ativ_confspeakers ) { 
+
+                                        foreach ( $cr3ativ_confspeakers as $cr3ativ_confspeaker ) :
+
+                                            $speaker = get_post($cr3ativ_confspeaker);
+                                            $speakerimg = get_the_post_thumbnail($speaker->ID);
+                                            echo'<div class="speaker_list_wrapper">';
+                                            echo '<a title="'. $speaker->post_title .'" class="masterTooltip" href="'. $speaker->guid .'">'. $speakerimg .'</a></div>'; 
+
+                                        endforeach; 
+
+                                    } ?>
+
+                                    </div>
+                                    <!-- End of speaker list -->
+                                    
+                                    <h2 class="meeting_date"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'squarecode' ); ?>&nbsp; <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+
+                                    <!-- Start of session content -->
+                                    <div class="session_content">
+
+                                        <?php the_excerpt (); ?> <a class="conference-more" href="<?php the_permalink (); ?>"><?php _e( 'Click for more information on', 'cr3at_conf' ); ?> '<?php the_title (); ?>'</a> 
+
+                                    </div>
+                                    <!-- End of session content -->
+                                    
+                                    <div class="clearfix"></div>
+                                    
+                                    <hr />
+                                    
+                                </div>
+                                <!-- End of conference content -->
+                                
+                        <div class="clearfix"></div>
+                                
+                        </div><!--End of conference wrapper -->
+
+                        <?php } ?>
 
         </div>
 

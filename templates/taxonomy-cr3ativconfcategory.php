@@ -53,11 +53,11 @@ remove_filter('posts_orderby','cr3ativoderby2');
             
             <!-- Start of session featured image -->
             <div class="session_featured_image">
-            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>  <?php the_title_attribute(); ?>"><?php the_post_thumbnail(''); ?></a>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>&nbsp;<?php the_title_attribute(); ?>"><?php the_post_thumbnail(''); ?></a>
             </div><!-- End of session featured image -->
             
             <?php } ?>
-            <h2 class="meeting_date"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>  <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+            <h2 class="meeting_date"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>&nbsp;<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
             
             <?php } else { ?>
             <?php 
@@ -65,11 +65,11 @@ remove_filter('posts_orderby','cr3ativoderby2');
             
             <!-- Start of session featured image -->
             <div class="session_featured_image">
-            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>  <?php the_title_attribute(); ?>"><?php the_post_thumbnail(''); ?></a>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>&nbsp;<?php the_title_attribute(); ?>"><?php the_post_thumbnail(''); ?></a>
             </div><!-- End of session featured image -->    
             <?php } ?>
             
-            <h2 class="meeting_date"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>  <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+            <h2 class="meeting_date"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>&nbsp;<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
             
             <?php } ?>
             
@@ -133,11 +133,11 @@ remove_filter('posts_orderby','cr3ativoderby2');
             
             <!-- Start of session featured image -->
             <div class="session_featured_image">
-            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>  <?php the_title_attribute(); ?>"><?php the_post_thumbnail(''); ?></a>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>&nbsp;<?php the_title_attribute(); ?>"><?php the_post_thumbnail(''); ?></a>
             </div><!-- End of session featured image -->
             
             <?php } ?>
-            <h2 class="meeting_date"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>  <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+            <h2 class="meeting_date"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>&nbsp;<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
             
             <?php } else { ?>
             <?php 
@@ -145,11 +145,11 @@ remove_filter('posts_orderby','cr3ativoderby2');
             
             <!-- Start of session featured image -->
             <div class="session_featured_image">
-            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>  <?php the_title_attribute(); ?>"><?php the_post_thumbnail(''); ?></a>
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>&nbsp;<?php the_title_attribute(); ?>"><?php the_post_thumbnail(''); ?></a>
             </div><!-- End of session featured image -->    
             <?php } ?>
             
-            <h2 class="meeting_date"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>  <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+            <h2 class="meeting_date"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>&nbsp;<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
             
             <?php } ?>
             
