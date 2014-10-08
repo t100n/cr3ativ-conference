@@ -1,6 +1,4 @@
-
 <?php 
-
 class cr3ativ_session extends WP_Widget {
 
 	// constructor
