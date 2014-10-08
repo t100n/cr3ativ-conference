@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cr3ativ Conference Plugin\n"
-"POT-Creation-Date: 2014-09-29 13:12-0500\n"
-"PO-Revision-Date: 2014-09-29 13:12-0500\n"
+"POT-Creation-Date: 2014-10-08 10:29-0500\n"
+"PO-Revision-Date: 2014-10-08 10:29-0500\n"
 "Last-Translator: Barb Atkinson <barbi.atkinson@gmaill.com>\n"
 "Language-Team: Barb Atkinson <barbi.atkinson@gmaill.com>\n"
 "Language: en\n"
@@ -251,7 +251,8 @@ msgstr ""
 msgid "Company"
 msgstr ""
 
-#: cr3ativ-conference.php:630
+#: cr3ativ-conference.php:630 includes/session-widget.php:24
+#: includes/speaker-widget.php:32
 msgid "Title"
 msgstr ""
 
@@ -259,16 +260,86 @@ msgstr ""
 msgid "Date Added"
 msgstr ""
 
-#: templates/single-cr3ativconference.php:74
+#: includes/session-widget.php:7
+msgid "Session Loop"
+msgstr ""
+
+#: includes/session-widget.php:28
+msgid "Show speakers for the sessions?"
+msgstr ""
+
+#: includes/session-widget.php:32
+msgid "Show location for the sessions?"
+msgstr ""
+
+#: includes/session-widget.php:106 includes/session-widget.php:110
+#: templates/single-cr3ativspeaker.php:122
+#: templates/single-cr3ativspeaker.php:126
+#: templates/single-cr3ativspeaker.php:161
+#: templates/single-cr3ativspeaker.php:165
+#: templates/taxonomy-cr3ativconfcategory.php:55
+#: templates/taxonomy-cr3ativconfcategory.php:59
+#: templates/taxonomy-cr3ativconfcategory.php:67
+#: templates/taxonomy-cr3ativconfcategory.php:71
+#: templates/taxonomy-cr3ativconfcategory.php:135
+#: templates/taxonomy-cr3ativconfcategory.php:139
+#: templates/taxonomy-cr3ativconfcategory.php:147
+#: templates/taxonomy-cr3ativconfcategory.php:151
+#: templates/template-cr3ativconference.php:80
+msgid "Permanent Link to"
+msgstr ""
+
+#: includes/session-widget.php:168 includes/speaker-widget.php:170
+#: templates/single-cr3ativconference.php:85
 #: templates/single-cr3ativspeaker.php:65
 #: templates/template-cr3ativconference.php:28
 #: templates/template-cr3ativspeaker.php:28
 msgid "There are no posts to display. Try using the search."
 msgstr ""
 
-#: templates/taxonomy-cr3ativconfcategory.php:105
-#: templates/taxonomy-cr3ativconfcategory.php:176
-#: templates/template-cr3ativconference.php:126
-#: templates/template-cr3ativconference.php:197
+#: includes/speaker-widget.php:7
+msgid "Speaker Loop"
+msgstr ""
+
+#: includes/speaker-widget.php:36
+msgid "Sorting Method"
+msgstr ""
+
+#: includes/speaker-widget.php:38
+msgid "Select One"
+msgstr ""
+
+#: includes/speaker-widget.php:39
+msgid "ASC"
+msgstr ""
+
+#: includes/speaker-widget.php:40
+msgid "DESC"
+msgstr ""
+
+#: includes/speaker-widget.php:44
+msgid "Show speaker headshot?"
+msgstr ""
+
+#: includes/speaker-widget.php:48
+msgid "Show speaker title?"
+msgstr ""
+
+#: includes/speaker-widget.php:52
+msgid "Show speaker company name?"
+msgstr ""
+
+#: includes/speaker-widget.php:56
+msgid "Link company name to company url?"
+msgstr ""
+
+#: includes/speaker-widget.php:60
+msgid "How many to show?"
+msgstr ""
+
+#: templates/taxonomy-cr3ativconfcategory.php:118
+#: templates/taxonomy-cr3ativconfcategory.php:198
+#: templates/template-cr3ativconference.php:139
+#: templates/template-cr3ativconference.php:219
 msgid "Click for more information on"
 msgstr ""
