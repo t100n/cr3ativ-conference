@@ -169,6 +169,9 @@ Styling for these page templates are included in the includes directory under :
 
 == Changelog ==
 
+= 1.0.1 =
+* Updated to include new drag and drop widgets for sessions and speakers.  Also updated mo/po files.
+
 = 1.0.0 =
 * First release.
 
