@@ -1,3 +1,4 @@
+
 <?php 
 
 class cr3ativ_session extends WP_Widget {
@@ -60,6 +61,7 @@ class cr3ativ_session extends WP_Widget {
         $args = array(
 		'post_type' => 'cr3ativconference',
                 'posts_per_page' => 99999999,
+                'order' => 'ASC',
                 'meta_key' => 'cr3ativconfmeetingdate',
 
                 'meta_query' => array(

@@ -13,6 +13,7 @@ $wp_query = new WP_Query(array(
         'post_type' => 'cr3ativconference',
         'cr3ativconfcategory'=>$term->slug,
         'posts_per_page' => 99999999,
+        'order' => 'ASC',
         'meta_key' => 'cr3ativconfmeetingdate',
         
         'meta_query' => array(

@@ -169,6 +169,9 @@ Styling for these page templates are included in the includes directory under :
 
 == Changelog ==
 
+= 1.0.2 =
+* Updated session-widget.php, taxonomy-cr3ativconfcagegory.php and template-cr3ativconference.php to make sure it is ordering with oldest date first.
+
 = 1.0.1 =
 * Updated to include new drag and drop widgets for sessions and speakers.  Also updated mo/po files.
 

@@ -34,6 +34,7 @@ add_filter('posts_orderby','cr3ativoderby2');
 $wp_query = new WP_Query(array(
         'post_type' => 'cr3ativconference',
         'posts_per_page' => 99999999,
+        'order' => 'ASC',
         'meta_key' => 'cr3ativconfmeetingdate',
         
         'meta_query' => array(
