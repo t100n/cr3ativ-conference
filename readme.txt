@@ -3,7 +3,7 @@ Contributors: Cr3ativ
 Tags: conference, events, speakers
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -168,6 +168,9 @@ Styling for these page templates are included in the includes directory under :
 
 
 == Changelog ==
+
+= 1.0.5 =
+* Updated speaker drag/drop widget to link featured image to the post.
 
 = 1.0.4 =
 * One final change, forgot to update the media queries for new widgets.

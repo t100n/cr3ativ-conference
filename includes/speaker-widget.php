@@ -126,8 +126,9 @@ global $post;
      <div class="speakerwidget">
      <?php 
         
-     if( $speakerheadshot == '1' ) { 
-         the_post_thumbnail( 'full'); ?>
+     if( $speakerheadshot == '1' ) { ?>
+         
+         <a href="<?php the_permalink (); ?>" target="_self"><?php the_post_thumbnail( 'full'); ?></a>
      <?php } ?>
          
      <h2 class="speakercompanyname"><a href="<?php the_permalink (); ?>" target="_self"><?php the_title (); ?></a></h2>

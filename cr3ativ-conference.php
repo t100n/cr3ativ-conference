@@ -5,7 +5,7 @@
  * Description: Custom written plugin for your conference needs on your WordPress site.
  * Author: Jonathan Atkinson
  * Author URI: http://cr3ativ.com/
- * Version: 1.0.4
+ * Version: 1.0.5
  */
 
 /* Place custom code below this line. */
