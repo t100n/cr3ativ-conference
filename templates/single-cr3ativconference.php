@@ -63,8 +63,9 @@
                     foreach ( $cr3ativ_confspeakers as $cr3ativ_confspeaker ) :
 
                         $speaker = get_post($cr3ativ_confspeaker);
+                        $speakerlink = get_permalink( $speaker->ID );
                         echo'<div class="speaker_list_wrapper">';
-                        echo get_the_post_thumbnail($speaker->ID).'<a href="'. $speaker->guid .'">'. $speaker->post_title .'</a></div>'; 
+                        echo get_the_post_thumbnail($speaker->ID).'<a href="'. $speakerlink .'">'. $speaker->post_title .'</a></div>'; 
 
                     endforeach; 
 

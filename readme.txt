@@ -3,7 +3,7 @@ Contributors: Cr3ativ
 Tags: conference, events, speakers
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -168,6 +168,9 @@ Styling for these page templates are included in the includes directory under :
 
 
 == Changelog ==
+
+= 1.0.6 =
+* Updated single-cr3ativconference.php, taxonomy-cr3ativconfcategory.php and template-cr3ativconference.php to fix issue when exporting XML of speakers to point to the correct url.
 
 = 1.0.5 =
 * Updated speaker drag/drop widget to link featured image to the post.
