@@ -194,8 +194,9 @@ class cr3ativ_session extends WP_Widget {
 
                                             $speaker = get_post($cr3ativ_confspeaker);
                                             $speakerimg = get_the_post_thumbnail($speaker->ID);
+                                            $speakerlink = get_permalink( $speaker->ID );
                                             echo'<div class="speaker_list_wrapper">';
-                                            echo '<a title="'. $speaker->post_title .'" class="masterTooltip" href="'. $speaker->guid .'">'. $speakerimg .'</a></div>'; 
+                                            echo '<a title="'. $speaker->post_title .'" class="masterTooltip" href="'. $speakerlink .'">'. $speakerimg .'</a></div>'; 
 
                                         endforeach; 
 
@@ -319,8 +320,9 @@ class cr3ativ_session extends WP_Widget {
 
                                             $speaker = get_post($cr3ativ_confspeaker);
                                             $speakerimg = get_the_post_thumbnail($speaker->ID);
+                                            $speakerlink = get_permalink( $speaker->ID );
                                             echo'<div class="speaker_list_wrapper">';
-                                            echo '<a title="'. $speaker->post_title .'" class="masterTooltip" href="'. $speaker->guid .'">'. $speakerimg .'</a></div>'; 
+                                            echo '<a title="'. $speaker->post_title .'" class="masterTooltip" href="'. $speakerlink .'">'. $speakerimg .'</a></div>'; 
 
                                         endforeach; 
 

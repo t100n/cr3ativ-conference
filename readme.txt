@@ -169,6 +169,9 @@ Styling for these page templates are included in the includes directory under :
 
 == Changelog ==
 
+= 1.0.7 =
+* Updated session-widget.php to include the 1.0.6 update, the widget was not updated with the changes for this update.
+
 = 1.0.6 =
 * Updated single-cr3ativconference.php, taxonomy-cr3ativconfcategory.php and template-cr3ativconference.php to fix issue when exporting XML of speakers to point to the correct url.
 
