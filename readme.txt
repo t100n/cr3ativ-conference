@@ -3,7 +3,7 @@ Contributors: Cr3ativ
 Tags: conference, events, speakers
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: 1.0.6
+Stable tag: 1.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -168,6 +168,9 @@ Styling for these page templates are included in the includes directory under :
 
 
 == Changelog ==
+
+= 1.0.8 =
+* Updated cr3ativ-conference.php - The start and end time fields that were previously select and have now been changed to text fields. As long as the 24-hour clock time is used (00:00 is midnight), the sorting will not be affected and any combination of hours and minutes for your sessions can be used.
 
 = 1.0.7 =
 * Updated session-widget.php to include the 1.0.6 update, the widget was not updated with the changes for this update.
