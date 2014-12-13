@@ -1,4 +1,38 @@
 <?php 
+
+/**
+ * Gets all Seasion dates.
+ * 
+ * @access public
+ * @return void
+ */
+ function cr3ativ_unique_post_meta_values( $key = 'cr3ativconfmeetingdate', $type = 'cr3ativconference', $status = 'publish' ) {
+
+    global $wpdb;
+
+    if( empty( $key ) ){
+    
+        return;
+
+	}
+
+	$res = $wpdb->get_col( $wpdb->prepare( "
+	SELECT DISTINCT pm.meta_value FROM {$wpdb->postmeta} pm
+	LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+	WHERE pm.meta_key = '%s'
+	AND p.post_status = '%s'
+	AND p.post_type = '%s'
+	", $key, $status, $type ) );
+	
+	foreach( $res as $re ){
+		
+		$array[] = $re;
+		
+	}
+	
+    return $res;
+}
+
 class cr3ativ_session extends WP_Widget {
 
 	// constructor
@@ -52,81 +86,67 @@ class cr3ativ_session extends WP_Widget {
    $sessionspeakers = $instance['sessionspeakers'];
    $sessionlocation = $instance['sessionlocation'];
    echo $before_widget;
-
-      
-        global $post;
-        add_filter('posts_orderby','cr3ativoderby2');
-        $args = array(
-		'post_type' => 'cr3ativconference',
-                'posts_per_page' => 99999999,
-                'order' => 'ASC',
-                'meta_key' => 'cr3ativconfmeetingdate',
-
-                'meta_query' => array(
-                    array(
-                'key' => 'cr3ativconfmeetingdate',
-                ),
-                    array(
-                'key' => 'cr3ativ_confstarttime',
-                ),
-                ),
-                );
-        remove_filter('posts_orderby','cr3ativoderby2');
    
-    query_posts($args);  
-          
-        $sessiondate = '';
-         
-   
-   // Check if title is set
+    // Check if title is set
    if ( $title ) {
       echo $before_title . $title . $after_title;
    }	
-   
-   // Display the widget
-    ?> 
-		<?php if (have_posts($args)) : while (have_posts()) : the_post(); 
+         
+   $dates = cr3ativ_unique_post_meta_values();
+            
+   foreach ( $dates as $date ){
+       
+       global $post;
+	   
+	   $dateformat = get_option('date_format');
+	   
+     //   add_filter('posts_orderby','cr3ativoderby2');
+       
+        $date_args = array(
+			'post_type' => 'cr3ativconference',
+            'posts_per_page' => 99999999,
+            'order' => 'ASC',
+            'meta_key' => 'cr3ativ_confstarttime',
+            'orderby' => 'meta_value_num',
+			'meta_query' => array(
+			    'relation' => 'AND',
+            array(
+	            'meta_key' => 'cr3ativconfmeetingdate',
+	            'value' => $date,
+	            'compare' => '=',
 
-        $cr3ativconfmeetingdate = get_post_meta($post->ID, 'cr3ativconfmeetingdate', $single = true); 
-        $confstarttime = get_post_meta($post->ID, 'cr3ativ_confstarttime', $single = true);
-        $confendtime = get_post_meta($post->ID, 'cr3ativ_confendtime', $single = true); 
-        $conflocation = get_post_meta($post->ID, 'cr3ativ_conflocation', $single = true); 
-        $cr3ativ_highlight = get_post_meta($post->ID, 'cr3ativ_highlight', $single = true);
+                ),
+            array(
+                'key' => 'cr3ativ_confstarttime',
+                'orderby' => 'meta_value_num',
+                ),
+                ),
+		);
+      //  remove_filter('posts_orderby','cr3ativoderby2');	 
         
-        ?>
-    
-     <div class="sessionwidget">
-                        <?php if ($cr3ativ_highlight != ('')){ ?>
+        $date_query = new WP_Query( $date_args );
+        echo '<div class="sessionwidget">';
+	
+        echo '<h1 class="conference_date">' . date( $dateformat, $date ) .'</h1>';
+		
+		if ($date_query->have_posts() ) : $i = 0; ?>
+			
+			<?php while ($date_query->have_posts()) : $date_query->the_post(); 
+			
+				$cr3ativconfmeetingdate = get_post_meta($post->ID, 'cr3ativconfmeetingdate', $single = true); 
+				$confstarttime = get_post_meta($post->ID, 'cr3ativ_confstarttime', $single = true);
+				$confendtime = get_post_meta($post->ID, 'cr3ativ_confendtime', $single = true); 
+				$conflocation = get_post_meta($post->ID, 'cr3ativ_conflocation', $single = true); 
+				$cr3ativ_highlight = get_post_meta($post->ID, 'cr3ativ_highlight', $single = true); ?>
+					
+				<?php if ($cr3ativ_highlight != ('')){ ?>
 
-                        <!-- Start of highlight -->
-                        <div class="highlight">
-
-                            <?php $dateformat = get_option('date_format'); ?>
-
-                            <?php if ($sessiondate != (date($dateformat, $cr3ativconfmeetingdate))){ ?>
-
-                            <h1 class="conference_date"><?php echo date($dateformat, $cr3ativconfmeetingdate); ?></h1>
-                            
+                  <!-- Start of highlight -->
+                  <div class="highlight">
                                 <?php 
-                                if ( has_post_thumbnail() ) {  ?>
-
-                                <!-- Start of session featured image -->
-                                <div class="session_featured_image">
-
-                                    <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'squarecode' ); ?>&nbsp; <?php the_title_attribute(); ?>"><?php the_post_thumbnail(''); ?></a>
-
-                                </div><!-- End of session featured image -->
-
-                                <?php } ?>
                                 
-                                <!-- Start of conference wrapper -->
-                            <div class="conference_wrapper">
+                                } //endif highlight
 
-                                <h2 class="meeting_date"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'squarecode' ); ?>&nbsp; <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-
-                                <?php } else { ?>
-
-                                <?php 
                                 if ( has_post_thumbnail() ) {  ?>
 
                                 <!-- Start of session featured image -->
@@ -138,41 +158,33 @@ class cr3ativ_session extends WP_Widget {
                                 <!-- End of session featured image --> 
                             
                                 <?php } ?>
-                                
-                                <!-- Start of conference wrapper -->
-                            <div class="conference_wrapper">
+			
+				<div class="conference_wrapper">
 
-                                <?php } ?>
+                	<!-- Start of conference meta -->
+                    <div class="conference_meta">
+						
+						<?php $sessiondate = date($dateformat, $cr3ativconfmeetingdate); ?>
+                        	
+                        	<!-- Start of conference time -->
+                            <div class="conference-time">
+                            	
+                            	<?php if ($confstarttime != ('')){  echo ($confstarttime); }
+                                if ($confendtime != ('')){ ?> &nbsp;-&nbsp; <?php echo ($confendtime); } ?>
 
-                                <!-- Start of conference meta -->
-                                <div class="conference_meta">
-
-                                    <?php $sessiondate = date($dateformat, $cr3ativconfmeetingdate); ?>
+                            </div>
+                            <!-- End of conference time -->
                                     
-                                    <!-- Start of conference time -->
-                                    <div class="conference-time">
+                            <div class="clearfix"></div>
+                                    
+                            <!-- Start of conference location -->
+                            <div class="conference-location">
                                         
-                                        <?php if ($confstarttime != ('')){ ?>
-                                        <?php echo ($confstarttime); ?>
-                                        <?php } ?>
-                                        <?php if ($confendtime != ('')){ ?>
-                                        &nbsp;-&nbsp;
-                                        <?php echo ($confendtime); ?>
-                                        <?php } ?>
+                               <?php if ($conflocation != ('')){ 
+                               		echo stripslashes($conflocation); 
+                               } ?>
 
-                                    </div>
-                                    <!-- End of conference time -->
-                                    
-                                    <div class="clearfix"></div>
-                                    
-                                    <!-- Start of conference location -->
-                                    <div class="conference-location">
-                                        
-                                        <?php if ($conflocation != ('')){ ?>
-                                        <?php echo stripslashes($conflocation); ?> 
-                                        <?php } ?>
-
-                                    </div>
+                            </div>
                                     <!-- End of conference location -->
                                     
                                 </div>
@@ -220,151 +232,26 @@ class cr3ativ_session extends WP_Widget {
                                 
                                 <div class="clearfix"></div>
                                 
-                            </div>
-                            <!-- End of conference wrapper -->
+                            </div>			
+				                     <?php if ($cr3ativ_highlight != ('')){ ?>
 
                         </div>
-                        <!-- End of highlight -->
+                  <!-- end of highlight -->
 
-                        <?php } else { ?>
-
-                        <?php $dateformat = get_option('date_format'); ?>
-
-                            <?php if ($sessiondate != (date($dateformat, $cr3ativconfmeetingdate))){ ?>
-
-                            <h1 class="conference_date"><?php echo date($dateformat, $cr3ativconfmeetingdate); ?></h1>
-            
-                            <?php 
-                            if ( has_post_thumbnail() ) {  ?>
-
-                            <!-- Start of session featured image -->
-                            <div class="session_featured_image">
-                                
-                                <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'squarecode' ); ?>&nbsp; <?php the_title_attribute(); ?>"><?php the_post_thumbnail(''); ?></a>
-                                
-                            </div>
-                            <!-- End of session featured image -->
-
-                            <?php } ?>
-                                
-                            <!-- Start of conference wrapper -->
-                            <div class="conference_wrapper">
-
-                            <?php } else { ?>
-            
-                            <?php 
-                            if ( has_post_thumbnail() ) {  ?>
-
-                            <!-- Start of session featured image -->
-                            <div class="session_featured_image">
-                                
-                                <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'squarecode' ); ?>&nbsp; <?php the_title_attribute(); ?>"><?php the_post_thumbnail(''); ?></a>
-                                
-                            </div>
-                            <!-- End of session featured image -->   
-            
-                            <?php } ?>
-                                
-                            <!-- Start of conference wrapper -->
-                            <div class="conference_wrapper">
-
-                            <?php } ?>
-                                
-                                <!-- Start of conference meta -->
-                                <div class="conference_meta">
-
-                                    <?php $sessiondate = date($dateformat, $cr3ativconfmeetingdate); ?>
-                                    
-                                    <!-- Start of conference time -->
-                                    <div class="conference-time">
-                                        
-                                        <?php if ($confstarttime != ('')){ ?>
-                                        <?php echo ($confstarttime); ?>
-                                        <?php } ?>
-                                        <?php if ($confendtime != ('')){ ?>
-                                        &nbsp;-&nbsp;
-                                        <?php echo ($confendtime); ?>
-                                        <?php } ?>
-
-                                    </div>
-                                    <!-- End of conference time -->
-                                    
-                                    <div class="clearfix"></div>
-                                    
-                                    <!-- Start of conference location -->
-                                    <div class="conference-location">
-                                        
-                                        <?php if ($conflocation != ('')){ ?>
-                                        <?php echo stripslashes($conflocation); ?> 
-                                        <?php } ?>
-
-                                    </div>
-                                    <!-- End of conference location -->
-                                    
-                                </div>
-                                <!-- End of conference meta -->
-                                
-                                <!-- Start of conference content -->
-                                <div class="conference_content">
-
-                                    <!-- Start of speaker list -->
-                                    <div class="speaker_list">
-
-                                    <?php
-                                     $cr3ativ_confspeakers = get_post_meta($post->ID, 'cr3ativ_confspeaker', $single = true); 
-                                    ?>    
-                                    <?php
-                                    if ( $cr3ativ_confspeakers ) { 
-
-                                        foreach ( $cr3ativ_confspeakers as $cr3ativ_confspeaker ) :
-
-                                            $speaker = get_post($cr3ativ_confspeaker);
-                                            $speakerimg = get_the_post_thumbnail($speaker->ID);
-                                            $speakerlink = get_permalink( $speaker->ID );
-                                            echo'<div class="speaker_list_wrapper">';
-                                            echo '<a title="'. $speaker->post_title .'" class="masterTooltip" href="'. $speakerlink .'">'. $speakerimg .'</a></div>'; 
-
-                                        endforeach; 
-
-                                    } ?>
-
-                                    </div>
-                                    <!-- End of speaker list -->
-                                    
-                                    <h2 class="meeting_date"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'squarecode' ); ?>&nbsp; <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-
-                                    <!-- Start of session content -->
-                                    <div class="session_content">
-
-                                        <?php the_excerpt (); ?> <a class="conference-more" href="<?php the_permalink (); ?>"><?php _e( 'Click for more information on', 'cr3at_conf' ); ?> '<?php the_title (); ?>'</a> 
-
-                                    </div>
-                                    <!-- End of session content -->
-                                    
-                                    <div class="clearfix"></div>
-                                    
-                                    <hr />
-                                    
-                                </div>
-                                <!-- End of conference content -->
-                                
-                        <div class="clearfix"></div>
-                                
-                        </div><!--End of conference wrapper -->
-
-                        <?php } ?>
-
-        </div>
-
-        <?php endwhile; ?>
-
-        <?php else: ?> 
-        <p><?php _e( 'There are no posts to display. Try using the search.', 'cr3at_conf' ); ?></p> 
-
-        <?php endif; wp_reset_query(); ?>
-  
-<?php     
+                <?php }  $i++;
+			
+			endwhile; 
    
+		else: ?> 
+			
+			<p><?php _e( 'There are no posts to display. Try using the search.', 'cr3at_conf' ); ?></p> 			
+		
+		<?php endif; wp_reset_query(); 
+			
+		echo '</div>';
+		
+   }
+     
    echo $after_widget;
 }
 }
