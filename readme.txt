@@ -3,7 +3,7 @@ Contributors: Cr3ativ
 Tags: conference, events, speakers
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: 1.0.9
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -168,6 +168,9 @@ Styling for these page templates are included in the includes directory under :
 
 
 == Changelog ==
+
+= 1.1.0 =
+* Updated single-cr3ativconference.php to correct issue with event date, please replace the single-cr3ativconference.php file with the file in your current theme’s root directory.
 
 = 1.0.9 =
 * Updated session-widget.php - Issue fixed with sorting of sessions when not added on the same date as the others but sharing the same session date.

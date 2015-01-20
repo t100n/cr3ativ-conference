@@ -28,7 +28,8 @@
             
                 <!-- Start of conference date -->
                 <div class="conference-date">
-                <?php echo get_the_date(get_option('date_format',$cr3ativconfmeetingdate)); ?>
+                     <?php $dateformat = get_option('date_format'); ?>
+                <?php echo date($dateformat, $cr3ativconfmeetingdate); ?>
                 
                 </div><!-- End of conference date -->
             
