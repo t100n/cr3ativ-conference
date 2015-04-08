@@ -115,9 +115,9 @@
 
         <?php $dateformat = get_option('date_format'); ?>
             
-            <?php if ($sessiondate != (date($dateformat, $cr3ativconfmeetingdate))){ ?>
+            <?php if ($sessiondate != (date_i18n($dateformat, $cr3ativconfmeetingdate))){ ?>
                 
-            <h5 class="date"><?php echo date($dateformat, $cr3ativconfmeetingdate); ?></h5>
+            <h5 class="date"><?php echo date_i18n($dateformat, $cr3ativconfmeetingdate); ?></h5>
             
             <h6 class="session"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>&nbsp;<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
             
@@ -127,7 +127,7 @@
             
             <?php } ?>
             
-            <?php $sessiondate = date($dateformat, $cr3ativconfmeetingdate); ?>
+            <?php $sessiondate = date_i18n($dateformat, $cr3ativconfmeetingdate); ?>
             
             <!-- Start of single conference location -->
             <div class="single-conference-location">
@@ -154,9 +154,9 @@
             
         <?php $dateformat = get_option('date_format'); ?>
             
-            <?php if ($sessiondate != (date($dateformat, $cr3ativconfmeetingdate))){ ?>
+            <?php if ($sessiondate != (date_i18n($dateformat, $cr3ativconfmeetingdate))){ ?>
                 
-            <h5 class="date"><?php echo date($dateformat, $cr3ativconfmeetingdate); ?></h5>
+            <h5 class="date"><?php echo date_i18n($dateformat, $cr3ativconfmeetingdate); ?></h5>
             
             <h6 class="session"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cr3at_conf' ); ?>&nbsp;<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
             
@@ -166,7 +166,7 @@
             
             <?php } ?>
             
-            <?php $sessiondate = date($dateformat, $cr3ativconfmeetingdate); ?>
+            <?php $sessiondate = date_i18n($dateformat, $cr3ativconfmeetingdate); ?>
             
             <!-- Start of single conference location -->
             <div class="single-conference-location">

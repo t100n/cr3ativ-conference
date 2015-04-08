@@ -127,7 +127,7 @@ class cr3ativ_session extends WP_Widget {
         $date_query = new WP_Query( $date_args );
         echo '<div class="sessionwidget">';
 	
-        echo '<h1 class="conference_date">' . date( $dateformat, $date ) .'</h1>';
+        echo '<h1 class="conference_date">' . date_i18n( $dateformat, $date ) .'</h1>';
 		
 		if ($date_query->have_posts() ) : $i = 0; ?>
 			
@@ -164,7 +164,7 @@ class cr3ativ_session extends WP_Widget {
                 	<!-- Start of conference meta -->
                     <div class="conference_meta">
 						
-						<?php $sessiondate = date($dateformat, $cr3ativconfmeetingdate); ?>
+						<?php $sessiondate = date_i18n($dateformat, $cr3ativconfmeetingdate); ?>
                         	
                         	<!-- Start of conference time -->
                             <div class="conference-time">

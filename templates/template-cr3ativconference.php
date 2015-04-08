@@ -66,9 +66,9 @@ remove_filter('posts_orderby','cr3ativoderby2');
 
         <?php $dateformat = get_option('date_format'); ?>
             
-            <?php if ($sessiondate != (date($dateformat, $cr3ativconfmeetingdate))){ ?>
+            <?php if ($sessiondate != (date_i18n($dateformat, $cr3ativconfmeetingdate))){ ?>
                 
-            <h1 class="conference_date"><?php echo date($dateformat, $cr3ativconfmeetingdate); ?></h1>
+            <h1 class="conference_date"><?php echo date_i18n($dateformat, $cr3ativconfmeetingdate); ?></h1>
             <?php 
             if ( has_post_thumbnail() ) {  ?>
             
@@ -94,7 +94,7 @@ remove_filter('posts_orderby','cr3ativoderby2');
             
             <?php } ?>
             
-            <?php $sessiondate = date($dateformat, $cr3ativconfmeetingdate); ?>
+            <?php $sessiondate = date_i18n($dateformat, $cr3ativconfmeetingdate); ?>
             
             <!-- Start of conference time -->
             <div class="conference-time">

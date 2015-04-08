@@ -3,7 +3,7 @@ Contributors: Cr3ativ
 Tags: conference, events, speakers
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -168,6 +168,9 @@ Styling for these page templates are included in the includes directory under :
 
 
 == Changelog ==
+
+= 1.2.0 =
+* Updated single-cr3ativconference.php, single-cr3ativspeaker.php, taxonomy-cr3ativconfcategory.php and template-cr3ativconference.php as well as the /includes/session-widget.php to correct issue with dates not translating from WP to native language.
 
 = 1.1.0 =
 * Updated single-cr3ativconference.php to correct issue with event date, please replace the single-cr3ativconference.php file with the file in your current theme’s root directory.
