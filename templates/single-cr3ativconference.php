@@ -13,6 +13,8 @@
         $confspeakers = get_post_meta($post->ID, 'cr3ativ_confspeaker', $single = true); 
         $confstarttime = get_post_meta($post->ID, 'cr3ativ_confstarttime', $single = true); 
         $confendtime = get_post_meta($post->ID, 'cr3ativ_confendtime', $single = true); 
+        $confdisplaystarttime = get_post_meta($post->ID, 'cr3ativ_confdisplaystarttime', $single = true);
+        $confdisplayendtime = get_post_meta($post->ID, 'cr3ativ_confdisplayendtime', $single = true);
         ?>
 
             <!-- Start of blog wrapper -->
@@ -35,10 +37,16 @@
             
                 <!-- Start of conference time -->
                 <div class="conference-time">
-                <?php echo ($confstarttime); ?> 
-                <?php if ($confendtime) { ?>
-                &nbsp; - &nbsp;
-                <?php echo ($confendtime); ?>
+                <?php if ($confdisplaystarttime != ('')) { ?>
+
+                <?php if ($confdisplaystarttime != ('')) { echo ($confdisplaystarttime); }
+                if ($confdisplayendtime != ('')){ ?> &nbsp;-&nbsp; <?php echo ($confdisplayendtime); } ?>
+
+                <?php } else { ?> 
+
+                <?php if ($confstarttime != ('')){  echo ($confstarttime); }
+                if ($confendtime != ('')){ ?> &nbsp;-&nbsp; <?php echo ($confendtime); } ?>
+
                 <?php } ?>
                     
                 </div><!-- End of conference time -->

@@ -136,6 +136,8 @@ class cr3ativ_session extends WP_Widget {
 				$cr3ativconfmeetingdate = get_post_meta($post->ID, 'cr3ativconfmeetingdate', $single = true); 
 				$confstarttime = get_post_meta($post->ID, 'cr3ativ_confstarttime', $single = true);
 				$confendtime = get_post_meta($post->ID, 'cr3ativ_confendtime', $single = true); 
+                $confdisplaystarttime = get_post_meta($post->ID, 'cr3ativ_confdisplaystarttime', $single = true);
+				$confdisplayendtime = get_post_meta($post->ID, 'cr3ativ_confdisplayendtime', $single = true); 
 				$conflocation = get_post_meta($post->ID, 'cr3ativ_conflocation', $single = true); 
 				$cr3ativ_highlight = get_post_meta($post->ID, 'cr3ativ_highlight', $single = true); ?>
 					
@@ -168,9 +170,18 @@ class cr3ativ_session extends WP_Widget {
                         	
                         	<!-- Start of conference time -->
                             <div class="conference-time">
+                                
+                                <?php if ($confdisplaystarttime != ('')) { ?>
+                                
+                                <?php if ($confdisplaystarttime != ('')) { echo ($confdisplaystarttime); }
+                                if ($confdisplayendtime != ('')){ ?> &nbsp;-&nbsp; <?php echo ($confdisplayendtime); } ?>
+                                
+                                <?php } else { ?> 
                             	
                             	<?php if ($confstarttime != ('')){  echo ($confstarttime); }
                                 if ($confendtime != ('')){ ?> &nbsp;-&nbsp; <?php echo ($confendtime); } ?>
+                                
+                                <?php } ?>
 
                             </div>
                             <!-- End of conference time -->

@@ -5,7 +5,7 @@
  * Description: Custom written plugin for your conference needs on your WordPress site.
  * Author: Jonathan Atkinson
  * Author URI: http://cr3ativ.com/
- * Version: 1.2.0
+ * Version: 1.3.0
  */
 
 /* Place custom code below this line. */
@@ -249,9 +249,23 @@ $cr3ativconference_fields = array(
         'std' => ""
     ),
 	array(
+        'label'    => __('Display Start Time', 'cr3at_conf'),
+        'desc'    => __('This is only if you do not wish to display your times in the 24-hour clock format.  The plugin will still use the above time in the 24-hour clock format to sort, but what is placed here will display instead of the above.  If you leave this blank, the above time will display.', 'cr3at_conf'),
+        'id'      => 'cr3ativ_confdisplaystarttime',
+        'type' => 'text',
+        'std' => ""
+    ),
+	array(
         'label'    => __('End Time', 'cr3at_conf'),
         'desc'    => __('Select the end time. 24-hour clock, 01:00-00:30', 'cr3at_conf'),
         'id'      => 'cr3ativ_confendtime',
+        'type' => 'text',
+        'std' => ""
+    ),
+	array(
+        'label'    => __('Display End Time', 'cr3at_conf'),
+        'desc'    => __('This is only if you do not wish to display your times in the 24-hour clock format.  The plugin will still use the above time in the 24-hour clock format to sort, but what is placed here will display instead of the above.  If you leave this blank, the above time will display.', 'cr3at_conf'),
+        'id'      => 'cr3ativ_confdisplayendtime',
         'type' => 'text',
         'std' => ""
     ),

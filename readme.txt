@@ -3,7 +3,7 @@ Contributors: Cr3ativ
 Tags: conference, events, speakers
 Requires at least: 3.0.1
 Tested up to: 4.2
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,9 +90,13 @@ Social Follow - this is a repeatable field. Upload an image for the social icon 
 
 Date - click to assign a date for this session
  
-Start Time - from the drop down, select the start time.  This is a 24 hour clock so 01:00 is 1:00 AM and 12:30 is 12:30 PM
+Start Time - in the 24-hour clock format, please enter your start time of the event.  The plugin requires this field to sort by the date and time of the event.  If you do not put your time in a 24-hour clock format, the sorting for the session will be incorrect.
 
-End Time - from the drop down, select the end time.  This is a 24 hour clock so 01:00 is 1:00 AM and 12:30 is 12:30 PM
+Display Start Time - If you do not want to 'display' the 24-hour clock format from above, you can enter what you wish here.  The plugin will still use the above for sorting, but for displaying will look to this field first, if this field is empty, the plugin will output the above 24-hour clock start time.
+
+End Time - in the 24-hour clock format, please enter your start time of the event.  The plugin requires this field to sort by the date and time of the event.  If you do not put your time in a 24-hour clock format, the sorting for the session will be incorrect.
+
+Display End Time - If you do not want to 'display' the 24-hour clock format from above, you can enter what you wish here.  For displaying the end time, the plugin will look to this field first, if this field is empty, the plugin will output the above 24-hour clock end time.
 
 Location - this is just a text field, enter the location (for example: Building A or Cafe C), whatever you enter here will display.
 
@@ -168,6 +172,9 @@ Styling for these page templates are included in the includes directory under :
 
 
 == Changelog ==
+
+= 1.3.0 =
+* Updated cr3ativ-conference.php, /includes/session-widget.php, /templates/single-cr3ativconference.php, /templates/single-cr3ativspeaker.php, /templates/taxonomy-cr3ativconfcategory.php, /templates/template-cr3ativconference.php.  2 new meta fields have been created so that you can choose to display the 24 hour clock or choose to put your own time.  Please note, the start and end time are still required to sort by using the 24-hour clock format, but 2 new inputs have been added for your convenience so if you wish to display on your site the 12 hour format you can.  Please update the templates listed above to your theme's root directory.  If you are using our Conference or Attend theme, an update to the theme will be forthcoming.
 
 = 1.2.0 =
 * Updated single-cr3ativconference.php, single-cr3ativspeaker.php, taxonomy-cr3ativconfcategory.php and template-cr3ativconference.php as well as the /includes/session-widget.php to correct issue with dates not translating from WP to native language.
