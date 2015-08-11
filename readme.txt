@@ -2,8 +2,8 @@
 Contributors: Cr3ativ
 Tags: conference, events, speakers
 Requires at least: 3.0.1
-Tested up to: 4.2
-Stable tag: 1.3.0
+Tested up to: 4.3
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -172,6 +172,10 @@ Styling for these page templates are included in the includes directory under :
 
 
 == Changelog ==
+
+= 1.4.0 =
+* Updated widget section to support WP 4.3.
+
 
 = 1.3.0 =
 * Updated cr3ativ-conference.php, /includes/session-widget.php, /templates/single-cr3ativconference.php, /templates/single-cr3ativspeaker.php, /templates/taxonomy-cr3ativconfcategory.php, /templates/template-cr3ativconference.php.  2 new meta fields have been created so that you can choose to display the 24 hour clock or choose to put your own time.  Please note, the start and end time are still required to sort by using the 24-hour clock format, but 2 new inputs have been added for your convenience so if you wish to display on your site the 12 hour format you can.  Please update the templates listed above to your theme's root directory.  If you are using our Conference or Attend theme, an update to the theme will be forthcoming.

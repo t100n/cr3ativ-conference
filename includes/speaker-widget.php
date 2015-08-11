@@ -4,7 +4,7 @@ class cr3ativ_speaker extends WP_Widget {
 
 	// constructor
 	function cr3ativ_speaker() {
-        parent::WP_Widget(false, $name = __('Speaker Loop', 'cr3at_conf') );
+        parent::__construct(false, $name = __('Speaker Loop', 'cr3at_conf') );
     }
 
 	// widget form creation

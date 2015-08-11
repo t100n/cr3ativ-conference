@@ -37,7 +37,7 @@ class cr3ativ_session extends WP_Widget {
 
 	// constructor
 	function cr3ativ_session() {
-        parent::WP_Widget(false, $name = __('Session Loop', 'cr3at_conf') );
+        parent::__construct(false, $name = __('Session Loop', 'cr3at_conf') );
     }
 
 	// widget form creation
